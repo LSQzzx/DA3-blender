@@ -83,7 +83,9 @@ class Dependencies:
                 "install",
                 "--no-deps",
                 "-e",
-                os.fspath(DA3_DIR)
+                os.fspath(DA3_DIR),
+                "--target",
+                os.fspath(deps_path)
             ]
             print(f'Installing: {cmd}')
             subprocess.check_call(cmd)

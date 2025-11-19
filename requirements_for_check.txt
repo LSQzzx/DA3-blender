@@ -22,4 +22,4 @@ plyfile
 pillow_heif
 safetensors
 addict
-depth_anything_3
+# depth_anything_3

@@ -90,7 +90,6 @@ class Dependencies:
                 "pip",
                 "install",
                 "--no-deps",
-                "-e",
                 os.fspath(DA3_DIR),
                 "--target",
                 os.fspath(deps_path_da3)

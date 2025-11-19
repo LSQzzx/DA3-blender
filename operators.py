@@ -28,8 +28,8 @@ def get_model():
     return model
 
 class DownloadModelOperator(bpy.types.Operator):
-    bl_idname = "pi3.download_model"
-    bl_label = "Download Pi3 Model"
+    bl_idname = "da3.download_model"
+    bl_label = "Download DA3 Model"
 
     def execute(self, context):
         if os.path.exists(MODEL_PATH):

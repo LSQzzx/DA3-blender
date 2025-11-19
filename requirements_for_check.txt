@@ -15,9 +15,9 @@ requests
 typer
 pillow
 omegaconf
-evo
+# evo
 e3nn
-moviepy
+moviepy==1.0.3
 plyfile
 pillow_heif
 safetensors

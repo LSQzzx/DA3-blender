@@ -23,4 +23,4 @@ pillow_heif
 safetensors
 addict
 pycolmap
-depth_anything_3
+# depth_anything_3

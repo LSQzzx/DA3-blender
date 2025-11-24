@@ -1,5 +1,5 @@
 import bpy
-from .operators import MODEL_PATH
+from .operators import get_model_path
 import os
 
 class DA3Panel(bpy.types.Panel):
@@ -12,11 +12,18 @@ class DA3Panel(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         scene = context.scene
+        
+        # Model selection dropdown
+        layout.prop(scene, "da3_model_name", text="Model")
+        
+        # Download button or status
+        model_path = get_model_path(scene.da3_model_name)
         row = layout.row()
-        if os.path.exists(MODEL_PATH):
-            row.label(text="Model already downloaded")
+        if os.path.exists(model_path):
+            row.label(text=f"Model {scene.da3_model_name} ready")
         else:
-            row.operator("da3.download_model")
+            row.operator("da3.download_model", text=f"Download {scene.da3_model_name}")
+        
         layout.prop(scene, "da3_input_folder", text="Input Folder")
         row = layout.row()
         row.operator("da3.generate_point_cloud")

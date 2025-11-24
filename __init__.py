@@ -21,6 +21,17 @@ def register():
         bpy.utils.register_class(operators.GeneratePointCloudOperator)
         bpy.utils.register_class(panels.DA3Panel)
         bpy.types.Scene.da3_input_folder = bpy.props.StringProperty(subtype='DIR_PATH')
+        bpy.types.Scene.da3_model_name = bpy.props.EnumProperty(
+            items=[
+                ('da3-small', 'DA3 Small', 'Small model for faster inference'),
+                ('da3-base', 'DA3 Base', 'Base model with balanced performance'),
+                ('da3-large', 'DA3 Large', 'Large model for better quality'),
+                ('da3-giant', 'DA3 Giant', 'Giant model for highest quality'),
+            ],
+            name="Model",
+            description="Select DA3 model variant",
+            default='da3-large'
+        )
     else:
         raise ValueError("installation failed.")
 
@@ -31,6 +42,7 @@ def unregister():
         bpy.utils.unregister_class(operators.GeneratePointCloudOperator)
         bpy.utils.unregister_class(panels.DA3Panel)
         del bpy.types.Scene.da3_input_folder
+        del bpy.types.Scene.da3_model_name
 
 if __name__ == "__main__":
     register()
